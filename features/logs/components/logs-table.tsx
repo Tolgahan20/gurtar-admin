@@ -216,15 +216,22 @@ export function LogsTable({
                     {formatDate(log.createdAt)}
                   </TableCell>
                   <TableCell>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="h-8 px-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50"
-                      onClick={() => handleAdminClick(log.admin)}
-                    >
-                      <UserIcon className="h-4 w-4 mr-2" />
-                      {log.admin.full_name}
-                    </Button>
+                    {log.admin ? (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="h-8 px-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50"
+                        onClick={() => handleAdminClick(log.admin)}
+                      >
+                        <UserIcon className="h-4 w-4 mr-2" />
+                        {log.admin.full_name || 'Unknown Admin'}
+                      </Button>
+                    ) : (
+                      <span className="text-gray-500 text-sm flex items-center">
+                        <UserIcon className="h-4 w-4 mr-2" />
+                        System
+                      </span>
+                    )}
                   </TableCell>
                   <TableCell>
                     <Badge variant="secondary" className={cn("capitalize", actionColor)}>
