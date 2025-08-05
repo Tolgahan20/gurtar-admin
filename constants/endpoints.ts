@@ -36,4 +36,8 @@ export const ENDPOINTS = {
     RESOLVE: (id: string) => `/contact/admin/${id}/resolve`,
     CREATE: "/contact",
   },
+  DASHBOARD: {
+    STATS: "/admin/dashboard/stats",
+    EXPORT_STATS: "/admin/dashboard/stats/export",
+  }
 } as const 

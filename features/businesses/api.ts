@@ -22,7 +22,7 @@ export const businessesApi: BusinessesApi = {
     if (filters.order) params.append("order", filters.order)
 
     const response = await axiosInstance.get<BusinessesResponse>(
-      `${ENDPOINTS.ADMIN.BUSINESSES}?${params.toString()}`
+      `${ENDPOINTS.BUSINESSES.LIST}?${params.toString()}`
     )
     return response.data
   },
